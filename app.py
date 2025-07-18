@@ -47,8 +47,8 @@ def load_data():
 my_chunks, doc_embeddings = load_data()
 
 # OpenAI Client:
-# client = OpenAI(api_key="OPENAI_API_KEY")
-client = OpenAI(os.getenv("OPENAI_API_KEY"))
+
+client = OpenAI(st.secrets["OPENAI_API_KEY"])
 
 # Prompter:
 
