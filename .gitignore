@@ -1,4 +1,3 @@
 .venv/
-RTP_Website_Docs_Plaintext.txt
 .env
 app_dev.py
