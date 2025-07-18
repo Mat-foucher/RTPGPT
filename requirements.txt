@@ -2,6 +2,7 @@ streamlit
 transformers
 sentence-transformers
 langchain
+langchain-community
 faiss-cpu
 scikit-learn
 openai
