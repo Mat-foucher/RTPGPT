@@ -48,7 +48,7 @@ my_chunks, doc_embeddings = load_data()
 
 # OpenAI Client:
 
-client = OpenAI(st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Prompter:
 
