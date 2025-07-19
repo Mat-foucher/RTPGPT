@@ -79,7 +79,7 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
       context = context + last_message['answer']
     
     prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts. 
-    Nothing from the eStore documentation is to be brought up.
+    Nothing from the eStore documentation is to be brought up. Nothing related to bStore is to be brought up.
     Remember that new ticket types are organized under product headers. 
     Based on the following context, answer
     the question as clearly as possible. 
