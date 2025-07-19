@@ -65,11 +65,14 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
     st.markdown(f"**[Debug]** Doc embedding shape: '{getattr(doc_embeddings, 'shape', 'no shape')}'")
     st.markdown(f"**[Debug]** Doc embedding type: '{type(doc_embeddings)}'")
 
-    top_indices = np.argsort(similarities)[-top_k:][::-1]
-    top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
+    try:
+      top_indices = np.argsort(similarities)[-top_k:][::-1]
+      top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
 
-    st.markdown(f"**[Debug]** top_indices: '{top_indices}'")
-
+      st.markdown(f"**[Debug]** top_indices: '{top_indices}'")
+    except:
+      st.markdown('Cannot load top indices')
+    
     context = "\n\n".join(top_chunks)
     if len(last_message) > 1:
       context = context + last_message['answer']
