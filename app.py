@@ -66,6 +66,8 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
     top_indices = np.argsort(similarities)[-top_k:][::-1]
     top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
 
+    st.markdown(f"**[Debug]** top_indices: '{top_indices}'")
+
     context = "\n\n".join(top_chunks)
     if len(last_message) > 1:
       context = context + last_message['answer']
