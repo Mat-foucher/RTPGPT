@@ -2,6 +2,7 @@
 
 import os
 import streamlit as st
+import numpy as np
 from transformers import pipeline
 from sentence_transformers import SentenceTransformer
 import openai
@@ -57,37 +58,39 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
   # Debug:
   try:
     question_embedding = model.encode(question)
-  except Exception as e:
-    st.markdown('Embedding Error:', e)
-  similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
-  # Debug:
-  st.markdown("top indices:", top_indices)
-  st.markdown("type:", type(top_indices))
-  st.markdown("dtype:", getattr(top_indices, 'dtype', 'N/A'))
-  st.markdown("shape:", getattr(top_indices, 'shape', 'N/A'))
+    similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
+    # Debug:
+    st.markdown("top indices:", top_indices)
+    st.markdown("type:", type(top_indices))
+    st.markdown("dtype:", getattr(top_indices, 'dtype', 'N/A'))
+    st.markdown("shape:", getattr(top_indices, 'shape', 'N/A'))
 
-  top_indices = similarities.argsort()[-top_k:][::-1]
-  top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
+    top_indices = np.argsort(similarities)[-top_k:][::-1]
+    top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
 
-  context = "\n\n".join(top_chunks)
-  if len(last_message) > 1:
-    context = context + last_message['answer']
+    context = "\n\n".join(top_chunks)
+    if len(last_message) > 1:
+      context = context + last_message['answer']
     
-  prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts. 
-  Nothing from the eStore documentation is to be brought up.
-  Remember that new ticket types are organized under product headers. 
-  Based on the following context, answer
-  the question as clearly as possible. 
-  Context: {context}
-  Question: {question}
-  Answer:"""
+    prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts. 
+    Nothing from the eStore documentation is to be brought up.
+    Remember that new ticket types are organized under product headers. 
+    Based on the following context, answer
+    the question as clearly as possible. 
+    Context: {context}
+    Question: {question}
+    Answer:"""
 
-  response = client.chat.completions.create(
-    model="gpt-4.1",
-    messages=[{"role": "user", "content": prompt}],
-    temperature=0.2
-  )
-  return response.choices[0].message.content
+    response = client.chat.completions.create(
+      model="gpt-4.1",
+      messages=[{"role": "user", "content": prompt}],
+      temperature=0.2
+    )
+    return response.choices[0].message.content
+  except Exception as e:
+    st.markdown('**Embedding Error:**')
+    st.markdown(str(e))
+    return 'Sorry, something went wrong while embedding your question.'
 
 # Actual prompting UI / asked question information goes here:
 
