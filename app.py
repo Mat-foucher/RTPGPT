@@ -60,8 +60,10 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
     question_embedding = model.encode(question)
     similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
     # Debug:
-    st.markdown(f"**[Debug]** Question embedding shape: '{question_embedding.shape}'")
-    st.markdown(f"**[Debug]** Doc embedding shape: '{doc_embeddings.shape}'")
+    st.markdown(f"**[Debug]** Question embedding shape: '{getattr(question_embedding, 'shape', 'no shape')}'")
+    st.markdown(f"**[Debug]** Question embedding type: '{type(question_embedding)}'")
+    st.markdown(f"**[Debug]** Doc embedding shape: '{getattr(doc_embeddings, 'shape', 'no shape')}'")
+    st.markdown(f"**[Debug]** Doc embedding type: '{type(doc_embeddings)}'")
 
     top_indices = np.argsort(similarities)[-top_k:][::-1]
     top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
