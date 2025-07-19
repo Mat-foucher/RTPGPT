@@ -9,7 +9,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from sklearn.metrics.pairwise import cosine_similarity
 from dotenv import load_dotenv
 # Hide OpenAI API Key:
-load_dotenv()
 
 st.title('RTP Smart Assistant')
 
@@ -59,7 +58,7 @@ def ask_rtp_question(question, your_chunks, doc_embedding, top_k=3, last_message
   top_chunks = [your_chunks[i].page_content for i in top_indices]
 
   context = "\n\n".join(top_chunks)
-  context = context.join(last_message)
+  context = context + last_message
   prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts. 
   Nothing from the eStore documentation is to be brought up.
   Remember that new ticket types are organized under product headers.
