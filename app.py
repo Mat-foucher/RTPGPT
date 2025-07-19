@@ -54,17 +54,17 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Prompter:
 
-def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
+def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message = ""):
   # Debug:
   try:
     question_embedding = model.encode(question)
-    doc_embeddings = np.array(doc_embeddings)
-    similarities = cosine_similarity(question_embedding.reshape(1,-1), doc_embeddings)[0]
+    doc_embedding = np.array(doc_embedding)
+    similarities = cosine_similarity(question_embedding.reshape(1,-1), doc_embedding)[0]
     # Debug:
     st.markdown(f"**[Debug]** Question embedding shape: '{getattr(question_embedding, 'shape', 'no shape')}'")
     st.markdown(f"**[Debug]** Question embedding type: '{type(question_embedding)}'")
-    st.markdown(f"**[Debug]** Doc embedding shape: '{getattr(doc_embeddings, 'shape', 'no shape')}'")
-    st.markdown(f"**[Debug]** Doc embedding type: '{type(doc_embeddings)}'")
+    st.markdown(f"**[Debug]** Doc embedding shape: '{getattr(doc_embedding, 'shape', 'no shape')}'")
+    st.markdown(f"**[Debug]** Doc embedding type: '{type(doc_embedding)}'")
 
     try:
       top_indices = np.argsort(similarities)[-top_k:][::-1]
