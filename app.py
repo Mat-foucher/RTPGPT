@@ -88,7 +88,7 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
     )
     return response.choices[0].message.content
   except Exception as e:
-    st.markdown('**Embedding Error:**')
+    st.markdown('**[Debug]** Embedding Error:')
     st.markdown(str(e))
     return 'Sorry, something went wrong while embedding your question.'
 
