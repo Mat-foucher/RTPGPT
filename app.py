@@ -36,12 +36,15 @@ def load_data():
 
   # Aspenware docs:
 
+  with open("aspenware.txt", "r", encoding="utf-8") as f:
+      raw_text_2 = f.read()
+
   text_splitter = RecursiveCharacterTextSplitter(
       chunk_size = 500,
       chunk_overlap = 100
   )
 
-  my_chunks = text_splitter.create_documents([raw_text])
+  my_chunks = text_splitter.create_documents([raw_text,raw_text_2])
 
 
   docs = [doc.page_content for doc in my_chunks]
