@@ -60,7 +60,7 @@ def ask_rtp_question(question, your_chunks, doc_embedding, top_k=3, last_message
   context = "\n\n".join(top_chunks)
   if len(last_message) > 1:
     for i in len(last_message):
-      print(last_message[i])
+      print(last_message, type(last_message))
   prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts. 
   Nothing from the eStore documentation is to be brought up.
   Remember that new ticket types are organized under product headers. 
