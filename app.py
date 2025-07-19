@@ -22,7 +22,7 @@ def load_model():
 
   return model
 
-# Caching model so that theapp runs faster:
+# Caching model so that the app runs faster:
 model = load_model()
 
 @st.cache_data(show_spinner="Loading and embedding docs...")
@@ -57,7 +57,7 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
   question_embedding = model.encode(question)
   similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
   top_indices = similarities.argsort()[-top_k:][::-1]
-  top_chunks = [your_chunks[i].page_content for i in top_indices]
+  top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
 
   context = "\n\n".join(top_chunks)
   if len(last_message) > 1:
