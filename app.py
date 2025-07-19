@@ -51,7 +51,7 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Prompter:
 
-def ask_rtp_question(question, your_chunks, doc_embedding, top_k=3, last_message = ""):
+def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
   question_embedding = model.encode(question)
   similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
   top_indices = similarities.argsort()[-top_k:][::-1]
