@@ -13,7 +13,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 from dotenv import load_dotenv
 # Hide OpenAI API Key:
 
-st.title('Snowbird Smart Assistant (RTPGPT - Archie)')
+st.title('RTPGPT')
+st.subheader('Archie - Snowbird Smart Assistant')
 
 @st.cache_resource(show_spinner='')
 def load_model():
