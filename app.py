@@ -60,17 +60,17 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
     question_embedding = model.encode(question)
     doc_embedding = np.array(doc_embedding)
     similarities = cosine_similarity(question_embedding.reshape(1,-1), doc_embedding)[0]
-    # Debug:
-    st.markdown(f"**[Debug]** Question embedding shape: '{getattr(question_embedding, 'shape', 'no shape')}'")
-    st.markdown(f"**[Debug]** Question embedding type: '{type(question_embedding)}'")
-    st.markdown(f"**[Debug]** Doc embedding shape: '{getattr(doc_embedding, 'shape', 'no shape')}'")
-    st.markdown(f"**[Debug]** Doc embedding type: '{type(doc_embedding)}'")
+    # # Debug:
+    # st.markdown(f"**[Debug]** Question embedding shape: '{getattr(question_embedding, 'shape', 'no shape')}'")
+    # st.markdown(f"**[Debug]** Question embedding type: '{type(question_embedding)}'")
+    # st.markdown(f"**[Debug]** Doc embedding shape: '{getattr(doc_embedding, 'shape', 'no shape')}'")
+    # st.markdown(f"**[Debug]** Doc embedding type: '{type(doc_embedding)}'")
 
     try:
       top_indices = np.argsort(similarities)[-top_k:][::-1]
       top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
 
-      st.markdown(f"**[Debug]** top_indices: '{top_indices}'")
+      # st.markdown(f"**[Debug]** top_indices: '{top_indices}'")
     except:
       st.markdown('Cannot load top indices')
     
