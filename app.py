@@ -60,7 +60,7 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
   except Exception as e:
     st.markdown('Embedding Error:', e)
   similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
-  top_indices = similarities.flatten().argsort()[-top_k:][::-1]
+  top_indices = similarities.argsort()[-top_k:][::-1]
   top_chunks = [your_chunks[int(i)].page_content for i in top_indices]
 
   context = "\n\n".join(top_chunks)
