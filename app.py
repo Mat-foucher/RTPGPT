@@ -13,7 +13,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from dotenv import load_dotenv
 # Hide OpenAI API Key:
 
-st.title('RTP Smart Assistant')
+st.title('Snowbird Smart Assistant (RTPGPT - Archie)')
 
 @st.cache_resource(show_spinner='')
 def load_model():
@@ -32,6 +32,8 @@ def load_data():
 
   with open("RTP_Website_Docs_Plaintext.txt", "r", encoding="utf-8") as f:
       raw_text = f.read()
+
+  # Aspenware docs:
 
   text_splitter = RecursiveCharacterTextSplitter(
       chunk_size = 500,
