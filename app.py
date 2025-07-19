@@ -109,7 +109,7 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
 if "history" not in st.session_state:
    st.session_state.history = []
 
-question = st.text_input("Ask me a question about RTP")
+question = st.text_input("Ask me a question about ski resort systems!")
 
 
 
