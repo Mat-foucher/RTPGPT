@@ -58,7 +58,8 @@ def ask_rtp_question(question, your_chunks,top_k=3, last_message = ""):
   # Debug:
   try:
     question_embedding = model.encode(question)
-    similarities = cosine_similarity([question_embedding], doc_embeddings)[0]
+    doc_embeddings = np.array(doc_embeddings)
+    similarities = cosine_similarity(question_embedding.reshape(1,-1), doc_embeddings)[0]
     # Debug:
     st.markdown(f"**[Debug]** Question embedding shape: '{getattr(question_embedding, 'shape', 'no shape')}'")
     st.markdown(f"**[Debug]** Question embedding type: '{type(question_embedding)}'")
