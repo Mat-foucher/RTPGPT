@@ -1,6 +1,6 @@
-### Welcome to RTPGPT / Archie. The NLP for Ski Resort SOPs 🏔️
+# Welcome to RTPGPT / Archie. The NLP for Ski Resort SOPs 🏔️
 
-## What is this NLP for?
+### What is this NLP for?
 
 At Snowbird, there is tons of documentation scattered in various systems for important resort technologies. 
 
@@ -10,7 +10,7 @@ A ski resort is - in essence - a small city. There are retail stores, constructi
 
 With each of these verticals, there are various SOPs that get tossed around... and forgotten.
 
-## What does this bot fix?
+### What does this bot fix?
 
 RTPGPT aka Archie aims to fix the issue of scattered documentation in folders, teams channels, old systems, legacy platforms, into one chatbot that anyone can ask for help!
 
