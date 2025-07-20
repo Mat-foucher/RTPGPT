@@ -1,4 +1,7 @@
-# Welcome to RTPGPT / Archie. The NLP for Ski Resort SOPs 🏔️
+# Welcome to RTPGPT!!!
+## The NLP for Ski Resort SOPs 🏔️
+### ("Archie" for short).
+
 
 ### What is this NLP for?
 
