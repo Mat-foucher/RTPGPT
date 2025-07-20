@@ -19,7 +19,7 @@ TLDR: when technology works, it's great. When technology doesn't work, it's terr
 
 ### What does this bot fix?
 
-RTPGPT aka Archie aims to fix the issue of scattered documentation in folders, teams channels, old systems, legacy platforms, into one chatbot that anyone can ask for help!
+RTPGPT aka Archie aims to fix the issue of scattered documentation in folders, teams channels, old systems, legacy platforms, into one chatbot that anyone can ask for help - with only the ability to speak english as a prerequisite!
 
 No matter if the user is in retail, ski patrol, hospitality or any of the many verticals at a ski resort - they can get their answers as if they had an expert on resort systems in their pocket.
 
