@@ -13,6 +13,10 @@ A ski resort is - in essence - a small city. There are retail stores, constructi
 
 With each of these verticals, there are various SOPs that get tossed around... and forgotten.
 
+The problem? Time spent looking for answers, tickets sitting in queues longer, emails and teams messages marinating while ops are impacted.
+
+TLDR: when technology works, it's great. When technology doesn't work, it's terrible adn worse when you can't find the answers you need - and fast.
+
 ### What does this bot fix?
 
 RTPGPT aka Archie aims to fix the issue of scattered documentation in folders, teams channels, old systems, legacy platforms, into one chatbot that anyone can ask for help!
