@@ -15,7 +15,7 @@ With each of these verticals, there are various SOPs that get tossed around... a
 
 The problem? Time spent looking for answers, tickets sitting in queues longer, emails and teams messages marinating while ops are impacted.
 
-TLDR: when technology works, it's great. When technology doesn't work, it's terrible adn worse when you can't find the answers you need - and fast.
+TLDR: when technology works, it's great. When technology doesn't work, it's terrible. Worse even, when you can't find the answers you need - and fast.
 
 ### What does this bot fix?
 
