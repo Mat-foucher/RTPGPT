@@ -86,6 +86,7 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
       context = context + last_message['answer']
     else:
       st.markdown('Error: Could not retain session memory')
+      st.markdown(last_message)
     
     prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts and Aspenware. 
     Nothing from the eStore documentation is to be brought up. Nothing related to bStore is to be brought up.
