@@ -81,8 +81,8 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
       st.markdown('Cannot load top indices')
     
     context = "\n\n".join(top_chunks)
-    if len(last_message) > 1:
-      context = context + last_message['answer']
+    
+    context = context + last_message['answer']
     
     prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts and Aspenware. 
     Nothing from the eStore documentation is to be brought up. Nothing related to bStore is to be brought up.
@@ -120,6 +120,8 @@ with col3:
   clear_history = st.button("Clear Chat History")
 with col1:
   show_history = st.button("Show History")
+
+
 if clear_history:
   st.session_state.history.clear()
 
