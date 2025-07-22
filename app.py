@@ -82,6 +82,7 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
     
     context = "\n\n".join(top_chunks)
     
+    # Session memory retention logic:
     if len(last_message) > 1: 
       context = context + last_message['answer']
     else:
