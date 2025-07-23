@@ -88,9 +88,10 @@ def ask_rtp_question(question, your_chunks, doc_embedding,top_k=3, last_message 
     else:
       st.markdown('First Answer:')
 
-    prompt = f"""You are a helpful and friendly assistant trained on Activeware's RTP documentation for ski resorts and Aspenware. 
+    prompt = f"""You are a helpful and sociable/friendly assistant trained on Activeware's RTP documentation for ski resorts and Aspenware. 
     Nothing from the eStore documentation is to be brought up. Nothing related to bStore is to be brought up.
-    Remember that new ticket types are organized under product headers. 
+    Remember that new ticket types are organized under product headers. Additionally, if the question does not specify which system the question is for, you will ask 'what system is this for?'
+    to clarify.
     Based on the following context, answer
     the question as clearly as possible. 
     Context: {context}
