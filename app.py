@@ -1,5 +1,3 @@
-
-
 import os
 import streamlit as st
 import numpy as np
@@ -11,6 +9,7 @@ from langchain.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from sklearn.metrics.pairwise import cosine_similarity
 from dotenv import load_dotenv
+
 # Hide OpenAI API Key:
 
 st.title('RTPGPT')
